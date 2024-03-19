@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Room</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        label {
+            margin-bottom: 5px;
+        }
+        button[type="submit"] {
+            margin-top: 20px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Book Room</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="name" class="form-label">Name:</label>
+                {{ form.customer }}
+            </div>
+            <div class="mb-3">
+                <label for="room" class="form-label">Room no:</label>
+                {{ form.room }}
+            </div>
+            <div class="mb-3">
+                <label for="check-in" class="form-label">Check In:</label>
+                {{ form.check_in_date }}
+            </div>
+            <div class="mb-3">
+                <label for="check-out" class="form-label">Check Out:</label>
+                {{ form.check_out_date }}
+            </div>
+            <button type="submit" class="btn btn-primary">Book</button>
+            <a href="/viewroom/" class="btn btn-secondary mt-2">Back</a>
+        </form>
+    </div>
+</body>
+</html>
+

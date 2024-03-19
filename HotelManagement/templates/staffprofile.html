@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Profile</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Welcome {{name}}</h1>
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Staff Information</h5>
+                <p class="card-text">Name: {{cr.name}}</p>
+                <p class="card-text">Age: {{cr.age}}</p>
+                <p class="card-text">Email: {{cr.email}}</p>
+                <a href="{% url 'staffupdate' name=cr.name %}" class="btn btn-primary">Edit Profile</a>
+                <a href="/staffviewroom/" class="btn btn-secondary">View Rooms</a>
+                <a href="/viewbookings/" class="btn btn-secondary">View Bookings</a>
+                <a href="/logoutuser/" class="btn btn-secondary">Logout</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

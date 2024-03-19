@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Details</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .booking-item {
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+        .booking-item-header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        .booking-item-body {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-5">Booking Details</h2>
+        {% for booking in cr %}
+        <div class="booking-item">
+            <div class="booking-item-header">Booking Details</div>
+            <div class="booking-item-body">
+                <p><strong>Customer:</strong> {{ booking.customer }}</p>
+                <p><strong>Room Number:</strong> {{ booking.room }}</p>
+                <p><strong>Check-in Date:</strong> {{ booking.check_in_date }}</p>
+                <p><strong>Check-out Date:</strong> {{ booking.check_out_date }}</p>
+                {% if booking.approval %}
+                <p><strong>Status:</strong>Booked</p>
+                {% else %}
+                <p><strong>Status:</strong>Pending</p>
+                {% endif %}                
+            </div>
+        </div>
+        {% endfor %}
+        <a href="/staffprofile/" class="btn btn-primary">Back</a>
+    </div>
+</body>
+</html>

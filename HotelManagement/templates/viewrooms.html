@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Details</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .room-item {
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+        .room-item-header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        .room-item-body {
+            padding: 10px;
+        }
+        .book-link {
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-5">Room Details</h2>
+        {% for room in cr %}
+        <div class="room-item">
+            <div class="room-item-header">Room Details</div>
+            <div class="room-item-body">
+                <p><strong>ID:</strong> {{ room.id }}</p>
+                <p><strong>Room Number:</strong> {{ room.room_number }}</p>
+                <p><strong>Room Type:</strong> {{ room.room_type }}</p>
+                <p><strong>Capacity:</strong> {{ room.capacity }}</p>
+                <p><strong>Price per Night:</strong> {{ room.price_per_night }}</p>
+                <p><strong>Availability:</strong> {{ room.available }}</p>
+                <a href="/bookroom/" class="btn btn-primary">Book</a>
+            </div>
+        </div>
+        {% endfor %}
+        <a href="/customerprofile/" class="btn btn-primary">Back</a>
+    </div>
+</body>
+</html>
